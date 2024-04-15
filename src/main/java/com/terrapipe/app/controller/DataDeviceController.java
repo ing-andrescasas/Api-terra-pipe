@@ -6,6 +6,7 @@ import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.terrapipe.app.model.entity.DataDevice;
@@ -18,6 +19,7 @@ public class DataDeviceController {
     @Autowired
     private TerraPipeServiceIface terraIface;
 
+    @GetMapping("/all")
     public ResponseEntity<List<DataDevice>> allDataDevice() {
         return ResponseEntity.ok(terraIface.dataDevicesAll());
     }
