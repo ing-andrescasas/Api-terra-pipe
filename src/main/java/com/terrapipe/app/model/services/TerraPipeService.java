@@ -25,8 +25,8 @@ public class TerraPipeService implements TerraPipeServiceIface {
 
     @Override
     @Transactional
-    public void saveDataDevice(DataDevice dataDevice) {
-        dataDeviceDao.save(dataDevice);
+    public DataDevice saveDataDevice(DataDevice dataDevice) {
+        return dataDeviceDao.save(dataDevice);
     }
 
     @Override
