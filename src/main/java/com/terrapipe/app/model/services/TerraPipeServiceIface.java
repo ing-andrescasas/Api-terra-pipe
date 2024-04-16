@@ -10,7 +10,7 @@ public interface TerraPipeServiceIface {
     //Service to Data device
     public List<DataDevice> dataDevicesAll();
 
-    public void saveDataDevice(DataDevice dataDevice);
+    public DataDevice saveDataDevice(DataDevice dataDevice);
 
     public DataDevice findDataDeviceById(Integer id);
 
