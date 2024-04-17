@@ -36,7 +36,7 @@ public class DataDeviceController {
         return ResponseEntity.ok(terraService.findDataDeviceById(id));
     }
 
-    @PostMapping
+    @PostMapping("create")
     public ResponseEntity<DataDevice> createProduct(@RequestBody DataDevice dataDevice) {
         DataDevice deviceCreated = terraService.saveDataDevice(dataDevice);
         return  ResponseEntity.ok(deviceCreated);
