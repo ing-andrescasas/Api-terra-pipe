@@ -30,6 +30,7 @@ public class DataDeviceController {
         return ResponseEntity.ok(terraService.dataDevicesAll());
     }
 
+    
     @GetMapping("/{id}")
     public ResponseEntity<DataDevice> findDataDevice(@PathVariable Integer id){
         return ResponseEntity.ok(terraService.findDataDeviceById(id));
