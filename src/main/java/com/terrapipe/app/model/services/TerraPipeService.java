@@ -24,7 +24,7 @@ import com.terrapipe.app.model.entity.Country;
 import com.terrapipe.app.model.entity.DataDevice;
 import com.terrapipe.app.model.entity.Device;
 import com.terrapipe.app.model.entity.DeviceParameters;
-import com.terrapipe.app.model.entity.HardwareCategory;
+import com.terrapipe.app.model.entity.DeviceCategory;
 import com.terrapipe.app.model.entity.HardwareProfile;
 import com.terrapipe.app.model.entity.ImageDevice;
 import com.terrapipe.app.model.entity.Profile;
@@ -224,17 +224,17 @@ public class TerraPipeService implements TerraPipeServiceIface {
 //Service Device Parameters
 
     @Override
-    public List<HardwareCategory> allHardwareCategory() {
+    public List<DeviceCategory> allHardwareCategory() {
         return hardwareCategoryDao.findAll();
     }
 
     @Override
-    public HardwareCategory saveHardwareCategory(HardwareCategory hardwareCategory) {
+    public DeviceCategory saveHardwareCategory(DeviceCategory hardwareCategory) {
         return hardwareCategoryDao.save(hardwareCategory);
     }
 
     @Override
-    public HardwareCategory findHardwareCategoryById(Integer id) {
+    public DeviceCategory findHardwareCategoryById(Integer id) {
         return hardwareCategoryDao.findById(id).orElse(null);
     }
 
@@ -244,7 +244,7 @@ public class TerraPipeService implements TerraPipeServiceIface {
     }
 
     @Override
-    public HardwareCategory updateHardwareCategory(HardwareCategory hardwareCategory) {
+    public DeviceCategory updateHardwareCategory(DeviceCategory hardwareCategory) {
         return hardwareCategoryDao.save(hardwareCategory);
     }
 

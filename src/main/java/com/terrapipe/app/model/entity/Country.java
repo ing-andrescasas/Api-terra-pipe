@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "countries")
+@Table(name = "paises")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,10 @@ public class Country {
     private String nombre;
     private boolean status;
 
-    @OneToMany (mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<State> state;
+    @OneToMany (mappedBy = "pais", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<State> pais;
 
-    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<UserPersonalInformation> userPersonalInformations;
+
     
     public Country() {
     }
