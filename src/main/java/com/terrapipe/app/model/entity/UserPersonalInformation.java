@@ -21,8 +21,7 @@ public class UserPersonalInformation {
     private String apellido1;
     private String apellido2;
     private String direccion;
-    @Column(name = "numero_telefono")
-    private Integer numeroTelefono;
+    private Integer telefono;
     private boolean estado;
     
     @ManyToOne(fetch = FetchType.LAZY)
@@ -45,7 +44,7 @@ public class UserPersonalInformation {
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.direccion = direccion;
-        this.numeroTelefono = numeroTelefono;
+        this.telefono = numeroTelefono;
         this.estado = estado;
     }
 
@@ -98,11 +97,11 @@ public class UserPersonalInformation {
     }
 
     public Integer getNumeroTelefono() {
-        return numeroTelefono;
+        return telefono;
     }
 
     public void setNumeroTelefono(Integer numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
+        this.telefono = numeroTelefono;
     }
 
     public boolean isEstado() {
@@ -117,7 +116,7 @@ public class UserPersonalInformation {
     public String toString() {
         return "UserPersonalInformation [id=" + id + ", nombre1=" + nombre1 + ", nombre2=" + nombre2 + ", apellido1="
                 + apellido1 + ", apellido2=" + apellido2 + ", direccion=" + direccion + ", numeroTelefono="
-                + numeroTelefono + ", estado=" + estado + "]";
+                + telefono + ", estado=" + estado + "]";
     }
 
 

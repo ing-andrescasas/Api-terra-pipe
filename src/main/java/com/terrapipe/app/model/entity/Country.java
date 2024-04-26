@@ -22,7 +22,7 @@ public class Country {
     private boolean status;
 
     @OneToMany (mappedBy = "pais", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<State> pais;
+    private List<State> departamento;
 
 
     
