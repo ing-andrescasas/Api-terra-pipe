@@ -20,9 +20,6 @@ public class TypeId {
     private String name;
     private boolean status;
 
-    @OneToMany(mappedBy = "tipo_id")
-    private List<UserPersonalInformation> userPersonalInformations;
-
     public TypeId() {
     }
 
