@@ -52,16 +52,20 @@ public class UPIController {
         try {
             UserPersonalInformation uPIExistente = terraService.findUPI(id);
 
-            if (uPI.getName()!= null && !uPI.getName().isEmpty())
-            uPIExistente.setName(uPI.getName());
-            if (uPI.getLastName()!= null && !uPI.getLastName().isEmpty())
-            uPIExistente.setLastName(uPI.getLastName());
-            if (uPI.getAddress()!= null && !uPI.getAddress().isEmpty())
-            uPIExistente.setAddress(uPI.getAddress());
-            if (uPI.getPhoneNumber()!= null )
-            uPIExistente.setPhoneNumber(uPI.getPhoneNumber());
+            if (uPI.getNombre1()!= null && !uPI.getNombre1().isEmpty())
+            uPIExistente.setNombre1(uPI.getNombre1());
+            if (uPI.getNombre2()!= null && !uPI.getNombre2().isEmpty())
+            uPIExistente.setNombre2(uPI.getNombre2());
+            if (uPI.getApellido1()!= null && !uPI.getApellido1().isEmpty())
+            uPIExistente.setApellido1(uPI.getApellido1());
+            if (uPI.getApellido2()!= null && !uPI.getApellido2().isEmpty())
+            uPIExistente.setApellido2(uPI.getApellido2());
+            if (uPI.getDireccion()!= null && !uPI.getDireccion().isEmpty())
+            uPIExistente.setDireccion(uPI.getDireccion());
+            if (uPI.getNumeroTelefono()!= null)
+            uPIExistente.setNumeroTelefono(uPI.getNumeroTelefono());
 
-            uPIExistente.setStatus(uPI.isStatus());
+            uPIExistente.setEstado(uPI.isEstado());
 
             terraService.updateUPI(uPIExistente);
 
