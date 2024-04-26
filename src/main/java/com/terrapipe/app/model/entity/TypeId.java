@@ -20,7 +20,7 @@ public class TypeId {
     private String name;
     private boolean status;
 
-    @OneToMany(mappedBy = "tipo_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "tipo_id")
     private List<UserPersonalInformation> userPersonalInformations;
 
     public TypeId() {
