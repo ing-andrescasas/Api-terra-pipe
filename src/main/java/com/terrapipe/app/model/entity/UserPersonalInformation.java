@@ -29,7 +29,7 @@ public class UserPersonalInformation {
     private TypeId typeId;
     @ManyToOne(fetch = FetchType.LAZY)
     private Finca finca;    
-    @OneToMany(mappedBy = "informacion_personal_usuario")
+    @OneToMany(mappedBy = "infoPersonalUsuario")
     private List<Device> dispositivos;
 
 

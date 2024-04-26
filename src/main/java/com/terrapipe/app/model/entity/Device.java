@@ -20,10 +20,10 @@ public class Device {
     private boolean estado;
     
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "info_personal_usuario_id")
     private UserPersonalInformation infoPersonalUsuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_dispositivo")
     private DeviceCategory categoriaDispositivo;
 
     public Device() {
