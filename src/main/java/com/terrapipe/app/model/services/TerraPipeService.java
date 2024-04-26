@@ -12,7 +12,6 @@ import com.terrapipe.app.model.dao.DataDeviceDao;
 import com.terrapipe.app.model.dao.DeviceDao;
 import com.terrapipe.app.model.dao.DeviceParameterDao;
 import com.terrapipe.app.model.dao.HardwareCategoryDao;
-import com.terrapipe.app.model.dao.HardwareProfileDao;
 import com.terrapipe.app.model.dao.ImageDeviceDao;
 import com.terrapipe.app.model.dao.ProfileDao;
 import com.terrapipe.app.model.dao.StateDao;
@@ -25,7 +24,6 @@ import com.terrapipe.app.model.entity.DataDevice;
 import com.terrapipe.app.model.entity.Device;
 import com.terrapipe.app.model.entity.DeviceParameters;
 import com.terrapipe.app.model.entity.DeviceCategory;
-import com.terrapipe.app.model.entity.HardwareProfile;
 import com.terrapipe.app.model.entity.ImageDevice;
 import com.terrapipe.app.model.entity.Profile;
 import com.terrapipe.app.model.entity.State;
@@ -54,8 +52,7 @@ public class TerraPipeService implements TerraPipeServiceIface {
     @Autowired
     private HardwareCategoryDao hardwareCategoryDao;
 
-    @Autowired
-    private HardwareProfileDao hardwareProfileDao;
+   
     
     @Autowired
     private ImageDeviceDao imageDeviceDao;
@@ -248,33 +245,7 @@ public class TerraPipeService implements TerraPipeServiceIface {
         return hardwareCategoryDao.save(hardwareCategory);
     }
 
-    //Service Hardware Profile
-
-    @Override
-    public List<HardwareProfile> allHardwareProfile() {
-        return hardwareProfileDao.findAll();
-    }
-
-    @Override
-    public HardwareProfile saveHardwareProfile(HardwareProfile hardwareProfile) {
-        return hardwareProfileDao.save(hardwareProfile);
-    }
-
-    @Override
-    public HardwareProfile findHardwareProfileById(Integer id) {
-        return hardwareProfileDao.findById(id).orElse(null);
-    }
-
-    @Override
-    public void deleteHardwareProfileById(Integer id) {
-        hardwareProfileDao.deleteById(id);
-    }
-
-    @Override
-    public HardwareProfile updateHardwareProfile(HardwareProfile hardwareProfile) {
-        return hardwareProfileDao.save(hardwareProfile);
-    }
-
+    
 
     //Service Image Device
 

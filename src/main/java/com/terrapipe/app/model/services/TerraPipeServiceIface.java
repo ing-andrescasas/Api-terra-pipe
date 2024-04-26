@@ -8,7 +8,6 @@ import com.terrapipe.app.model.entity.DataDevice;
 import com.terrapipe.app.model.entity.Device;
 import com.terrapipe.app.model.entity.DeviceParameters;
 import com.terrapipe.app.model.entity.DeviceCategory;
-import com.terrapipe.app.model.entity.HardwareProfile;
 import com.terrapipe.app.model.entity.ImageDevice;
 import com.terrapipe.app.model.entity.Profile;
 import com.terrapipe.app.model.entity.State;
@@ -92,17 +91,7 @@ public interface TerraPipeServiceIface {
     public DeviceCategory updateHardwareCategory(DeviceCategory hardwareCategory);
     //
 
-    //Service to Hardware category
-    public List<HardwareProfile> allHardwareProfile();
-
-    public HardwareProfile saveHardwareProfile(HardwareProfile hardwareProfile);
-
-    public HardwareProfile findHardwareProfileById(Integer id);
-
-    public void deleteHardwareProfileById(Integer id);
-
-    public HardwareProfile updateHardwareProfile(HardwareProfile hardwareProfile);
-    //
+ 
 
     //Service to Image Device
     public List<ImageDevice> allImageDevices();
