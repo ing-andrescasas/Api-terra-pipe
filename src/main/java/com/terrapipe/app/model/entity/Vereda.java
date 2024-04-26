@@ -1,6 +1,5 @@
 package com.terrapipe.app.model.entity;
 
-
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
