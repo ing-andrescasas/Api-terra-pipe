@@ -19,8 +19,6 @@ public class Device {
     private String name;
     private boolean estado;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    private UserPersonalInformation infoPersonalUsuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private DeviceCategory categoriaDispositivo;
