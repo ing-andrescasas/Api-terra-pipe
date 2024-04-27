@@ -29,9 +29,9 @@ public class UserPersonalInformation {
     private TypeId typeId;
     @ManyToOne(fetch = FetchType.LAZY)
     private Finca finca;    
-    @OneToMany(mappedBy = "userPersonalInformation")
-    @JoinColumn(name = "id_device")
-    private List<Device> dispositivos;
+    //@OneToMany(mappedBy = "userPersonalInformation")
+    //@JoinColumn(name = "id_device")
+    //private List<Device> dispositivos;
 
 
 
