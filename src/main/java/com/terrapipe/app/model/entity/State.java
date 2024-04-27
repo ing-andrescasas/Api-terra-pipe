@@ -24,11 +24,6 @@ public class State {
     private String nombre;
     private boolean estado;
     
-    @OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<City> municipio;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Country pais;
 
     public State() {
     }
