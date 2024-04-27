@@ -24,11 +24,6 @@ public class UserPersonalInformation {
     private Integer telefono;
     private boolean estado;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipos_id")
-    private TypeId typeId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Finca finca;    
 
 
     public UserPersonalInformation() {
