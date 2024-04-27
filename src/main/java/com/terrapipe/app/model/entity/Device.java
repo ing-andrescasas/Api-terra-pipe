@@ -12,29 +12,16 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "devices")
+@Table(name = "dispositivos")
 public class Device {
-    
     @Id
     private Integer id;
     private String name;
-    private boolean status;
-
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // private HardwareProfile hardwareProfile;
+    private boolean estado;
     
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // private HardwareCategory hardwareCategory;
-    
-    @OneToMany(mappedBy = "device", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<DataDevice> dataDevices;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "device_parameter_id")
-    private DeviceParameters deviceParameters;
-
-    @OneToMany(mappedBy = "device", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<ImageDevice> imageDevices;
+    private DeviceCategory categoriaDispositivo;
 
     public Device() {
     }
@@ -43,7 +30,7 @@ public class Device {
     public Device(Integer id, String name, boolean status) {
         this.id = id;
         this.name = name;
-        this.status = status;
+        this.estado = status;
     }
 
 
@@ -68,18 +55,18 @@ public class Device {
 
 
     public boolean isStatus() {
-        return status;
+        return estado;
     }
 
 
     public void setStatus(boolean status) {
-        this.status = status;
+        this.estado = estado;
     }
 
 
     @Override
     public String toString() {
-        return "Device [id=" + id + ", name=" + name + ", status=" + status + "]";
+        return "Dispositivo [id=" + id + ", name=" + name + ", estado=" + estado + "]";
     }
 
 

@@ -8,12 +8,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "types_id")
+@Table(name = "tipos_id")
 public class TypeId {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,9 +20,6 @@ public class TypeId {
     private String name;
     private boolean status;
 
-//    @OneToMany(mappedBy = "type_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private List<UserPersonalInformation> userPersonalInformations;
-//
     public TypeId() {
     }
 

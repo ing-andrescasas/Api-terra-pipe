@@ -1,45 +1,53 @@
 package com.terrapipe.app.model.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "user_personal_informations")
+@Table(name = "informacion_personal_usuarios")
 public class UserPersonalInformation {
     @Id
     private Integer id;
-    private String name;
-    private String lastName;
-    private String address;
-    @Column(name = "phone_number")
-    private Integer phoneNumber;
-    private boolean status;
+    private String nombre1;
+    private String nombre2;
+    private String apellido1;
+    private String apellido2;
+    private String direccion;
+    private Integer telefono;
+    private boolean estado;
     
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private TypeId typeId;
-//
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipos_id")
+    private TypeId typeId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Finca finca;    
+    //@OneToMany(mappedBy = "userPersonalInformation")
+    //@JoinColumn(name = "id_device")
+    //private List<Device> dispositivos;
 
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "countries_id")
-    //private Country country;
 
     public UserPersonalInformation() {
     }
 
-    public UserPersonalInformation(Integer id, String name, String lastName, String address, Integer phoneNumber,
-            boolean status) {
+    public UserPersonalInformation(Integer id, String nombre1, String nombre2, String apellido1, String apellido2,
+            String direccion, Integer numeroTelefono, boolean estado) {
         this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.status = status;
+        this.nombre1 = nombre1;
+        this.nombre2 = nombre2;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.direccion = direccion;
+        this.telefono = numeroTelefono;
+        this.estado = estado;
     }
 
     public Integer getId() {
@@ -50,51 +58,69 @@ public class UserPersonalInformation {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre1() {
+        return nombre1;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre1(String nombre1) {
+        this.nombre1 = nombre1;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getNombre2() {
+        return nombre2;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNombre2(String nombre2) {
+        this.nombre2 = nombre2;
     }
 
-    public String getAddress() {
-        return address;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
 
-    public Integer getPhoneNumber() {
-        return phoneNumber;
+    public String getApellido2() {
+        return apellido2;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
-    public boolean isStatus() {
-        return status;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Integer getNumeroTelefono() {
+        return telefono;
+    }
+
+    public void setNumeroTelefono(Integer numeroTelefono) {
+        this.telefono = numeroTelefono;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "UserPersonalInformation [id=" + id + ", name=" + name + ", lastName=" + lastName + ", address="
-                + address + ", phoneNumber=" + phoneNumber + ", status=" + status + "]";
+        return "UserPersonalInformation [id=" + id + ", nombre1=" + nombre1 + ", nombre2=" + nombre2 + ", apellido1="
+                + apellido1 + ", apellido2=" + apellido2 + ", direccion=" + direccion + ", numeroTelefono="
+                + telefono + ", estado=" + estado + "]";
     }
+
 
     
 }

@@ -1,25 +1,30 @@
 package com.terrapipe.app.model.entity;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cities")
+@Table(name = "municipios")
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-    private boolean status;
-    
+    private boolean estado;
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Vereda> vereda;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    private State state;
+    private State departamento;
 
     
     public City() {
@@ -28,7 +33,7 @@ public class City {
     public City(Integer id, String nombre, boolean status) {
         this.id = id;
         this.nombre = nombre;
-        this.status = status;
+        this.estado = status;
     }
 
     public Integer getId() {
@@ -48,16 +53,16 @@ public class City {
     }
 
     public boolean isStatus() {
-        return status;
+        return estado;
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        this.estado = status;
     }
 
     @Override
     public String toString() {
-        return "City [id=" + id + ", nombre=" + nombre + ", status=" + status + "]";
+        return "City [id=" + id + ", nombre=" + nombre + ", status=" + estado + "]";
     }
 
     
