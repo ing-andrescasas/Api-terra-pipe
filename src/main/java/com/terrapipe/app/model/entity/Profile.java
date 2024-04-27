@@ -17,8 +17,6 @@ public class Profile {
     private String name;
     private boolean status;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
 
     public Profile() {
     }
