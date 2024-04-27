@@ -17,9 +17,6 @@ public class ImageDevice {
     private String name;
     private String url;
     private boolean status;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Device device;
 
     public ImageDevice() {
     }
