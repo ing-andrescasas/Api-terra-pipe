@@ -25,9 +25,9 @@ public class UserPersonalInformation {
 //
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "countries_id")
-    private Country country;
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "countries_id")
+    //private Country country;
 
     public UserPersonalInformation() {
     }
