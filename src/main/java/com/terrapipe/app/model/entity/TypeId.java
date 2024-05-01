@@ -11,7 +11,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import lombok.*;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "tipos_id")
 public class TypeId {
     @Id
@@ -21,44 +27,6 @@ public class TypeId {
     private boolean status;
     @OneToMany(mappedBy = "tipoId")
     private List<UserPersonalInformation> upis;
-
-    public TypeId() {
-    }
-
-    public TypeId(Integer id, String name, boolean status) {
-        this.id = id;
-        this.name = name;
-        this.status = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "TypeId [id=" + id + ", name=" + name + ", status=" + status + "]";
-    }
 
     
 }

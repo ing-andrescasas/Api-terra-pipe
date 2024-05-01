@@ -13,9 +13,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
-
+import lombok.*;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "departamentos")
 public class State {
     @Id
@@ -29,44 +33,6 @@ public class State {
 
     @OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY)
     private List<City> ciudades;
-
-    public State() {
-    }
-
-    public State(Integer id, String nombre, boolean status) {
-        this.id = id;
-        this.nombre = nombre;
-        this.estado = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public boolean isStatus() {
-        return estado;
-    }
-
-    public void setStatus(boolean status) {
-        this.estado = estado;
-    }
-
-    @Override
-    public String toString() {
-        return "State [id=" + id + ", nombre=" + nombre + ", estado=" + estado + "]";
-    }
 
     
 }
