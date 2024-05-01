@@ -8,7 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import lombok.*;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "images_device")
 public class ImageDevice {
     @Id
@@ -17,52 +23,6 @@ public class ImageDevice {
     private String name;
     private String url;
     private boolean status;
-
-    public ImageDevice() {
-    }
-
-    public ImageDevice(Integer id, String name, boolean status) {
-        this.id = id;
-        this.name = name;
-        this.status = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "imageDevice [id=" + id + ", name=" + name + ", status=" + status + "]";
-    }
 
  
 }

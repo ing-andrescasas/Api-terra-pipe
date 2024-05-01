@@ -56,7 +56,7 @@ public class StateController {
             stateExistente.setNombre(state.getNombre());
 
 
-            stateExistente.setStatus(state.isStatus());
+            stateExistente.setEstado(state.isEstado());
 
             terraService.updateState(stateExistente);
 
