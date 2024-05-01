@@ -2,6 +2,8 @@ package com.terrapipe.app.model.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -26,6 +28,7 @@ public class TypeId {
     private String name;
     private boolean status;
     @OneToMany(mappedBy = "tipoId")
+    @JsonIgnore
     private List<UserPersonalInformation> upis;
 
     
