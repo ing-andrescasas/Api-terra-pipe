@@ -25,12 +25,9 @@ public class UserPersonalInformation {
     private boolean estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private TypeId tipoId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Finca finca;    
+    private TypeId tipoId;   
     @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
     private List<Device> dispositivos;
-
     @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
     private List<Finca> fincas;
 

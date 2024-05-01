@@ -20,6 +20,7 @@ public class Device {
     private boolean estado;
     @ManyToOne(fetch = FetchType.LAZY)
     private UserPersonalInformation upi;
+    
     public Device() {
     }
 
