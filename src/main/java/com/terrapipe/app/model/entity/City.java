@@ -20,11 +20,6 @@ public class City {
     private Integer id;
     private String nombre;
     private boolean estado;
-    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Vereda> vereda;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private State departamento;
 
     
     public City() {

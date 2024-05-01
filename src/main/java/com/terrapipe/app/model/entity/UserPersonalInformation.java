@@ -23,7 +23,7 @@ public class UserPersonalInformation {
     private String direccion;
     private Integer telefono;
     private boolean estado;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipos_id")
     private TypeId typeId;

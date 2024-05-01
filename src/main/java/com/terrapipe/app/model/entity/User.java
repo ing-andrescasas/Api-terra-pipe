@@ -24,11 +24,6 @@ public class User {
     private String password;
     private boolean status;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<Profile> profiles;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private UserPersonalInformation userPersonalInformation;
 
 
     

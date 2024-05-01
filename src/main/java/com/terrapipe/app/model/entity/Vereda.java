@@ -21,12 +21,6 @@ public class Vereda {
     private String nombre;
     private boolean estado;
     
-    @OneToMany(mappedBy = "vereda", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Finca> finca;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private City municipio;
-
 
     public Vereda() {
     }

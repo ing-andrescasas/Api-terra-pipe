@@ -21,10 +21,7 @@ public class Finca {
     private String detalle;
     private boolean estado;
     
-    @OneToMany(mappedBy = "finca", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<UserPersonalInformation> userPersonalInformations;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Vereda vereda;
+
 
     public Finca() {
     }
