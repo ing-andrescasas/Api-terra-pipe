@@ -1,7 +1,5 @@
 package com.terrapipe.app.model.entity;
-
 import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -26,10 +24,13 @@ public class UserPersonalInformation {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TypeId tipoId;   
+
     @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
     private List<Device> dispositivos;
+    
     @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
     private List<Finca> fincas;
+
 
 
     public UserPersonalInformation() {
