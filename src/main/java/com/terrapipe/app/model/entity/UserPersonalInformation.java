@@ -19,7 +19,7 @@ public class UserPersonalInformation {
     private String apellido1;
     private String apellido2;
     private String direccion;
-    private Integer telefono;
+    private String telefono;
     private boolean estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
