@@ -12,7 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import lombok.*;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "categorias_dispositivos")
 public class DeviceCategory {
     @Id
@@ -21,43 +27,4 @@ public class DeviceCategory {
     private String nombre;
     private boolean estado;
 
-    public DeviceCategory() {
-    }
-
-    public DeviceCategory(Integer id, String name, boolean status) {
-        this.id = id;
-        this.nombre = nombre;
-        this.estado = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String name) {
-        this.nombre = name;
-    }
-
-    public boolean isStatus() {
-        return estado;
-    }
-
-    public void setStatus(boolean estado) {
-        this.estado = estado;
-    }
-
-    @Override
-    public String toString() {
-        return "Categoria Dispositivo [id=" + id + ", nombre=" + nombre + ", estado=" + estado + "]";
-    }
-
-    
 }

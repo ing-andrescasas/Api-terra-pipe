@@ -62,8 +62,8 @@ public class UPIController {
             uPIExistente.setApellido2(uPI.getApellido2());
             if (uPI.getDireccion()!= null && !uPI.getDireccion().isEmpty())
             uPIExistente.setDireccion(uPI.getDireccion());
-            if (uPI.getNumeroTelefono()!= null)
-            uPIExistente.setNumeroTelefono(uPI.getNumeroTelefono());
+            if (uPI.getTelefono()!= null)
+            uPIExistente.setTelefono(uPI.getTelefono());
 
             uPIExistente.setEstado(uPI.isEstado());
 
