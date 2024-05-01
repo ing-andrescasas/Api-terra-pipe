@@ -12,7 +12,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import lombok.*;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "ciudades")
 public class City {
     @Id
@@ -26,44 +32,5 @@ public class City {
     @OneToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
     private List<Vereda> veredas;
 
-    public City() {
-    }
-
-    public City(Integer id, String nombre, boolean status) {
-        this.id = id;
-        this.nombre = nombre;
-        this.estado = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public boolean isStatus() {
-        return estado;
-    }
-
-    public void setStatus(boolean status) {
-        this.estado = status;
-    }
-
-    @Override
-    public String toString() {
-        return "City [id=" + id + ", nombre=" + nombre + ", status=" + estado + "]";
-    }
-
-    
 
 }
