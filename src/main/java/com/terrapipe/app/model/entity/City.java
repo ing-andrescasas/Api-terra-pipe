@@ -13,20 +13,19 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "municipios")
+@Table(name = "ciudades")
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private boolean estado;
-    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Vereda> vereda;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private State departamento;
+    @OneToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
+    private List<Vereda> veredas;
 
-    
     public City() {
     }
 

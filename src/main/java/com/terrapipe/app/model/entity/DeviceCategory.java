@@ -20,10 +20,6 @@ public class DeviceCategory {
     private Integer id;
     private String nombre;
     private boolean estado;
-    
-    @OneToMany(mappedBy = "categoria_dispositivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Device> dispositivos;
-
 
     public DeviceCategory() {
     }

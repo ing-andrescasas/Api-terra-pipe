@@ -20,10 +20,8 @@ public class Country {
     private Integer id;
     private String nombre;
     private boolean status;
-
-    @OneToMany (mappedBy = "pais", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<State> departamento;
-
+    @OneToMany(mappedBy = "pais", fetch = FetchType.LAZY)
+    private List<State> departamentos;
 
     
     public Country() {

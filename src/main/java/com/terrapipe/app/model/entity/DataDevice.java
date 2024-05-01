@@ -32,9 +32,6 @@ public class DataDevice {
     private boolean status;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Device device;
-
     public DataDevice() {
     }
 

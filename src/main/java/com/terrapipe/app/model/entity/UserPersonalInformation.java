@@ -20,12 +20,16 @@ public class UserPersonalInformation {
     private String direccion;
     private Integer telefono;
     private boolean estado;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipos_id")
-    private TypeId typeId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Finca finca;    
+    private TypeId tipoId;
+
+    @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
+    private List<Device> dispositivos;
+
+    @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
+    private List<Finca> fincas;
+
 
 
     public UserPersonalInformation() {
@@ -41,6 +45,9 @@ public class UserPersonalInformation {
         this.direccion = direccion;
         this.telefono = numeroTelefono;
         this.estado = estado;
+
+        
+
     }
 
     public Integer getId() {

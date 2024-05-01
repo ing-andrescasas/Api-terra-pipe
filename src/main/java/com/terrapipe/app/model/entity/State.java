@@ -23,12 +23,12 @@ public class State {
     private Integer id;
     private String nombre;
     private boolean estado;
-    
-    @OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<City> municipio;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Country pais;
+
+    @OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY)
+    private List<City> ciudades;
 
     public State() {
     }

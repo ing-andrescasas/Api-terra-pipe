@@ -19,6 +19,8 @@ public class TypeId {
     private Integer id;
     private String name;
     private boolean status;
+    @OneToMany(mappedBy = "tipoId")
+    private List<UserPersonalInformation> upis;
 
     public TypeId() {
     }
