@@ -29,10 +29,11 @@ public class UserPersonalInformation {
     private TypeId typeId;
     @ManyToOne(fetch = FetchType.LAZY)
     private Finca finca;    
-    @OneToMany(mappedBy = "informacion_personal_usuarios")
-    @JoinColumn(name = "id_device")
+    @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
     private List<Device> dispositivos;
 
+    @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
+    private List<Finca> fincas;
 
 
     public UserPersonalInformation() {
@@ -48,6 +49,9 @@ public class UserPersonalInformation {
         this.direccion = direccion;
         this.telefono = numeroTelefono;
         this.estado = estado;
+
+        
+
     }
 
     public Integer getId() {

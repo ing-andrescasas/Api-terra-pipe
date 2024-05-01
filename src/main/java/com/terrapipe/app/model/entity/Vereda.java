@@ -20,7 +20,11 @@ public class Vereda {
     private Integer Id;
     private String nombre;
     private boolean estado;
-    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private City ciudad;
+
+    @OneToMany(mappedBy = "vereda", fetch = FetchType.LAZY)
+    private List<Finca> fincas;
 
     public Vereda() {
     }

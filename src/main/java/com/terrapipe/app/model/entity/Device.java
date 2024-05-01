@@ -18,7 +18,8 @@ public class Device {
     private Integer id;
     private String name;
     private boolean estado;
-    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UserPersonalInformation upi;
     public Device() {
     }
 
