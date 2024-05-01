@@ -8,8 +8,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import lombok.*;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "dispositivos")
 public class Device {
     @Id
@@ -18,54 +23,6 @@ public class Device {
     private boolean estado;
     @ManyToOne(fetch = FetchType.LAZY)
     private UserPersonalInformation upi;
-
-    public Device() {
-    }
-
-
-    public Device(Integer id, String name, boolean status) {
-        this.id = id;
-        this.name = name;
-        this.estado = status;
-    }
-
-
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public boolean isStatus() {
-        return estado;
-    }
-
-
-    public void setStatus(boolean status) {
-        this.estado = estado;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Dispositivo [id=" + id + ", name=" + name + ", estado=" + estado + "]";
-    }
-
-
 
     
 }
