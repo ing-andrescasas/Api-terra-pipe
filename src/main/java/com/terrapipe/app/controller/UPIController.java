@@ -3,6 +3,7 @@ package com.terrapipe.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ import com.terrapipe.app.model.entity.UserPersonalInformation;
 import com.terrapipe.app.model.services.TerraPipeServiceIface;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/upi")
 public class UPIController {
     @Autowired
@@ -48,33 +50,30 @@ public class UPIController {
         terraService.deleteUPIById(id);;
         return ResponseEntity.ok(uPIDelete);
     }
-    
     @PutMapping("/{id}")
-    public ResponseEntity<UserPersonalInformation> editUPI(@PathVariable Integer id, @RequestBody  UserPersonalInformation uPI) {
+    public ResponseEntity<UserPersonalInformation> editUPI(@PathVariable Integer id, @RequestBody UserPersonalInformation uPI) {
         try {
             UserPersonalInformation uPIExistente = terraService.findUPI(id);
-
-            if (uPI.getNombre1()!= null && !uPI.getNombre1().isEmpty())
+            
+            if (uPIExistente == null) {
+                return ResponseEntity.notFound().build();
+            }
+    
             uPIExistente.setNombre1(uPI.getNombre1());
-            if (uPI.getNombre2()!= null && !uPI.getNombre2().isEmpty())
             uPIExistente.setNombre2(uPI.getNombre2());
-            if (uPI.getApellido1()!= null && !uPI.getApellido1().isEmpty())
             uPIExistente.setApellido1(uPI.getApellido1());
-            if (uPI.getApellido2()!= null && !uPI.getApellido2().isEmpty())
             uPIExistente.setApellido2(uPI.getApellido2());
-            if (uPI.getDireccion()!= null && !uPI.getDireccion().isEmpty())
             uPIExistente.setDireccion(uPI.getDireccion());
-            if (uPI.getTelefono()!= null)
             uPIExistente.setTelefono(uPI.getTelefono());
-
             uPIExistente.setEstado(uPI.isEstado());
-
+    
+            // Actualiza el usuario en la base de datos
             terraService.updateUPI(uPIExistente);
-
+    
             return ResponseEntity.ok(uPIExistente);
-
-        }catch (Exception e){
-            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+    
 }

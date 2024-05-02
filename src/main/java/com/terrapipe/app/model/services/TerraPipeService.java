@@ -1,6 +1,7 @@
 package com.terrapipe.app.model.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -412,9 +413,34 @@ public class TerraPipeService implements TerraPipeServiceIface {
     }
 
     @Override
-    public UserPersonalInformation updateUPI(UserPersonalInformation userPersonalInformation) {
-        return uPIDao.save(userPersonalInformation);
+public UserPersonalInformation updateUPI(UserPersonalInformation userPersonalInformation) {
+    Integer userId = userPersonalInformation.getId();
+    if (userId == null) {
+        // Si el ID del usuario es null, no se puede actualizar
+        return null;
     }
+    
+    // Verifica si el usuario con el ID dado existe en la base de datos
+    Optional<UserPersonalInformation> optionalUser = uPIDao.findById(userId);
+    if (optionalUser.isEmpty()) {
+        // Si no se encuentra el usuario, no se puede actualizar
+        return null;
+    }
+
+    // Si el usuario existe en la base de datos, actualiza sus datos
+    UserPersonalInformation existingUser = optionalUser.get();
+    existingUser.setNombre1(userPersonalInformation.getNombre1());
+    existingUser.setNombre2(userPersonalInformation.getNombre2());
+    existingUser.setApellido1(userPersonalInformation.getApellido1());
+    existingUser.setApellido2(userPersonalInformation.getApellido2());
+    existingUser.setDireccion(userPersonalInformation.getDireccion());
+    existingUser.setTelefono(userPersonalInformation.getTelefono());
+    existingUser.setEstado(userPersonalInformation.isEstado());
+
+    // Guarda los cambios en la base de datos
+    return uPIDao.save(existingUser);
+}
+
 
     
 
