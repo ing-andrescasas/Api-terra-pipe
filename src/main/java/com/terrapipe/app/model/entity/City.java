@@ -27,7 +27,7 @@ public class City {
     private String nombre;
     private boolean estado;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private State departamento;
     @OneToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
     private List<Vereda> veredas;

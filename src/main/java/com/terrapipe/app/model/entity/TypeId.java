@@ -20,14 +20,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "tipos_id")
+@Table(name = "tiposid")
 public class TypeId {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private boolean status;
-    @OneToMany(mappedBy = "tipoId")
+    @OneToMany(mappedBy = "tipoId", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<UserPersonalInformation> upis;
 

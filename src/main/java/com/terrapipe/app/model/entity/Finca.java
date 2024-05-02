@@ -26,7 +26,7 @@ public class Finca {
     private String nombre;
     private String detalle;
     private boolean estado;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Vereda vereda;
 
     @ManyToOne(fetch = FetchType.LAZY)

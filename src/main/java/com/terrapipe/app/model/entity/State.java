@@ -28,7 +28,7 @@ public class State {
     private String nombre;
     private boolean estado;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     private Country pais;
 
     @OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY)
