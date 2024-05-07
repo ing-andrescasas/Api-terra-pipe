@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.terrapipe.app.model.entity.TypeId;
 import com.terrapipe.app.model.entity.UserPersonalInformation;
 import com.terrapipe.app.model.services.TerraPipeServiceIface;
 
@@ -39,9 +40,19 @@ public class UPIController {
 
     @PostMapping("/create")
     public ResponseEntity<UserPersonalInformation> createUser(@RequestBody UserPersonalInformation uPI) {
-        UserPersonalInformation uPICreated = terraService.saveUPI(uPI);
-        return  ResponseEntity.ok(uPICreated);
+    // Verificar si se proporcionó un tipoId
+    if (uPI.getTipoId() != null) {
+        // Verificar si el tipoId existe antes de guardar los datos
+        TypeId tipoId = terraService.findTypeIdById(uPI.getTipoId().getId());
+        if (tipoId == null) {
+            return ResponseEntity.badRequest().build(); // Devolver error 400 si el tipoId no existe
+        }
     }
+
+    // Guardar los datos del usuario
+    UserPersonalInformation uPICreated = terraService.saveUPI(uPI);
+    return  ResponseEntity.ok(uPICreated);
+}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<UserPersonalInformation> deleteUPI(@PathVariable Integer id)  {

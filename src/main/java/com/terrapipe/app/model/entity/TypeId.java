@@ -27,9 +27,7 @@ public class TypeId {
     private Integer id;
     private String name;
     private boolean status;
-    @OneToMany(mappedBy = "tipoId", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "tipoId")
     @JsonIgnore
     private List<UserPersonalInformation> upis;
-
-    
 }

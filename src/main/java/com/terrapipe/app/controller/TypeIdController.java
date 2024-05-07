@@ -19,7 +19,7 @@ import com.terrapipe.app.model.services.TerraPipeServiceIface;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/type_id")
+@RequestMapping("/tiposid")
 public class TypeIdController {
     @Autowired
     private TerraPipeServiceIface terraService;
