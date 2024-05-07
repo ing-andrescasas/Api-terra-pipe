@@ -34,7 +34,8 @@ public class UserPersonalInformation {
     @ManyToOne
     private TypeId tipoId;   
 
-    @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Device> dispositivos;
     
     @OneToMany(mappedBy = "upi", fetch = FetchType.LAZY)

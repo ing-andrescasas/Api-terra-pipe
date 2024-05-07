@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +19,13 @@ import com.terrapipe.app.model.entity.Device;
 import com.terrapipe.app.model.services.TerraPipeServiceIface;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/devices")
 public class DeviceController {
     @Autowired
     private TerraPipeServiceIface terraService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/all")
     public ResponseEntity<List<Device>> allDevice() {
         return ResponseEntity.ok(terraService.allDevices());
